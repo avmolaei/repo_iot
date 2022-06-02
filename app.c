@@ -71,6 +71,7 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
   bd_addr address;
   uint8_t address_type;
   uint8_t system_id[8];
+  uint8_t amog;
 
   switch (SL_BT_MSG_ID(evt->header)) {
     // -------------------------------
