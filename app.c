@@ -32,6 +32,8 @@
 #include "sl_bluetooth.h"
 #include "gatt_db.h"
 #include "app.h"
+#include "sl_sensor_rht.h"
+#include "get_temp.h"
 
 // The advertising set handle allocated from Bluetooth stack.
 static uint8_t advertising_set_handle = 0xff;
@@ -43,6 +45,7 @@ SL_WEAK void app_init(void)
 {
   /////////////////////////////////////////////////////////////////////////////
   // Put your additional application init code here!                         //
+  app_log_info("%s\n", __FUNCTION__);
   // This is called once during start-up.                                    //
   /////////////////////////////////////////////////////////////////////////////
 }
@@ -71,7 +74,6 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
   bd_addr address;
   uint8_t address_type;
   uint8_t system_id[8];
-  uint8_t amog;
 
   switch (SL_BT_MSG_ID(evt->header)) {
     // -------------------------------
@@ -122,11 +124,16 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
     // -------------------------------
     // This event indicates that a new connection was opened.
     case sl_bt_evt_connection_opened_id:
+      sl_sensor_rht_init();
+      app_log_info("%s: connexion ouverte!\n", __FUNCTION__);
+
       break;
 
     // -------------------------------
     // This event indicates that a connection was closed.
     case sl_bt_evt_connection_closed_id:
+      sl_sensor_rht_deinit();
+      app_log_info("%s: connexion fermee!\n", __FUNCTION__);
       // Restart advertising after client has disconnected.
       sc = sl_bt_advertiser_start(
         advertising_set_handle,
@@ -138,6 +145,11 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
     ///////////////////////////////////////////////////////////////////////////
     // Add additional event handlers here as your application requires!      //
     ///////////////////////////////////////////////////////////////////////////
+    case sl_bt_evt_gatt_server_user_read_request_id:
+      app_log_info("%s: reading temp and humidty....\n", __FUNCTION__);
+      get_temp();
+      break;
+
 
     // -------------------------------
     // Default event handler.

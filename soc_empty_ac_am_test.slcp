@@ -19,10 +19,13 @@ include:
 sdk: {id: gecko_sdk, version: 4.0.2}
 toolchain_settings: []
 component:
+- {id: app_log}
 - {id: bluetooth_feature_connection}
 - {id: bluetooth_feature_gatt_server}
 - {id: brd4166a}
 - {id: bluetooth_feature_advertiser}
+- instance: [vcom]
+  id: iostream_usart
 - {id: bluetooth_feature_sm}
 - {id: mpu}
 - {id: bluetooth_feature_system}
@@ -36,6 +39,7 @@ component:
 - {id: rail_util_pti}
 - {id: app_assert}
 - {id: bluetooth_feature_gatt}
+- {id: sensor_rht}
 other_file:
 - {path: create_bl_files.bat}
 - {path: create_bl_files.sh}
@@ -44,7 +48,6 @@ other_file:
 - {path: readme_img2.png}
 - {path: readme_img3.png}
 - {path: readme_img4.png}
-config_file: []
 configuration:
 - {name: SL_STACK_SIZE, value: '2752'}
 - {name: SL_HEAP_SIZE, value: '9200'}

@@ -1,5 +1,6 @@
 #CRC Codes for initially generated config files -- do not modify!
 app_assert_config.h=1351236558
+app_log_config.h=-1134478857
 app_properties_config.h=-763091270
 btconf/gatt_configuration.btconf=2010503253
 btconf/ota_dfu.xml=-127429997
@@ -14,6 +15,8 @@ sl_device_init_dcdc_config.h=-412905792
 sl_device_init_emu_config.h=-1292589747
 sl_device_init_hfxo_config.h=211374013
 sl_device_init_lfxo_config.h=88411528
+sl_i2cspm_sensor_config.h=1435149054
+sl_iostream_usart_vcom_config.h=-1233252042
 sl_memory_config.h=503032768
 sl_mx25_flash_shutdown_usart_config.h=2028437356
 sl_power_manager_config.h=-1475773310
