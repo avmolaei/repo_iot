@@ -27,6 +27,7 @@ component:
 - instance: [vcom]
   id: iostream_usart
 - {id: bluetooth_feature_sm}
+- {id: simple_timer}
 - {id: mpu}
 - {id: bluetooth_feature_system}
 - {id: EFR32MG12P332F1024GL125}

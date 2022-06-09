@@ -1,6 +1,9 @@
-autogen/sl_power_manager_handler.o: ../autogen/sl_power_manager_handler.c \
+gecko_sdk_4.0.2/app/bluetooth/common/simple_timer/sl_simple_timer.o: \
+ C\:/Users/avest/SimplicityStudio/SDKs/gecko_sdk/app/bluetooth/common/simple_timer/sl_simple_timer.c \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\toolchain\inc\sl_gcc_preinclude.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_core.h \
+ C\:/Users/avest/SimplicityStudio/SDKs/gecko_sdk/app/bluetooth/common/simple_timer/sl_simple_timer.h \
+ c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\sleeptimer\inc\sl_sleeptimer.h \
+ C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_sleeptimer_config.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\em_device.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\efr32mg12p332f1024gl125.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\cmsis\include\core_cm4.h \
@@ -55,42 +58,23 @@ autogen/sl_power_manager_handler.o: ../autogen/sl_power_manager_handler.c \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\efr32mg12p_dmareq.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\efr32mg12p_af_ports.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\efr32mg12p_af_pins.h \
+ c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\inc\sl_status.h \
+ c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\power_manager\inc\sl_power_manager.h \
+ C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_power_manager_config.h \
+ c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_core.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_common.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_assert.h \
  C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\autogen/sl_component_catalog.h \
  C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/emlib_core_debug_config.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\power_manager\inc\sl_power_manager.h \
- C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_power_manager_config.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\inc\sl_slist.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\inc\sl_status.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\sleeptimer\inc\sl_sleeptimer.h \
- C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_sleeptimer_config.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\inc\sl_enum.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_emu.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_bus.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_core.h \
- ../autogen/sl_bluetooth.h \
- C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_bluetooth_config.h \
- C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_bluetooth_connection_config.h \
- C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_bluetooth_advertiser_config.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sl_bt_stack_config.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sl_bt_ll_config.h \
- C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_rail_util_pa_config.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\radio\rail_lib\common\rail_types.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\radio\rail_lib\chip\efr32\efr32xg1x\rail_chip_specific.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\radio\rail_lib\common\rail_features.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\radio\rail_lib\common\rail_types.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sl_bt_api.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sl_bgapi.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sl_bt_api_compatibility.h \
- ../autogen/sl_iostream_init_usart_instances.h \
- ../autogen/sl_component_catalog.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\iostream\inc\sl_iostream.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\iostream\inc\sl_iostream_uart.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\iostream\inc\sl_iostream.h \
- c\:\users\avest\simplicitystudio\sdks\gecko_sdk\app\bluetooth\common\simple_timer\sl_simple_timer.h
+ c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_core.h
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\toolchain\inc\sl_gcc_preinclude.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_core.h:
+C\:/Users/avest/SimplicityStudio/SDKs/gecko_sdk/app/bluetooth/common/simple_timer/sl_simple_timer.h:
+c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\sleeptimer\inc\sl_sleeptimer.h:
+C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_sleeptimer_config.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\em_device.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\efr32mg12p332f1024gl125.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\cmsis\include\core_cm4.h:
@@ -145,37 +129,16 @@ c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr3
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\efr32mg12p_dmareq.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\efr32mg12p_af_ports.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\efr32mg12p_af_pins.h:
+c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\inc\sl_status.h:
+c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\power_manager\inc\sl_power_manager.h:
+C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_power_manager_config.h:
+c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_core.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_common.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_assert.h:
 C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\autogen/sl_component_catalog.h:
 C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/emlib_core_debug_config.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\power_manager\inc\sl_power_manager.h:
-C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_power_manager_config.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\inc\sl_slist.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\inc\sl_status.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\sleeptimer\inc\sl_sleeptimer.h:
-C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_sleeptimer_config.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\inc\sl_enum.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_emu.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_bus.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_core.h:
-../autogen/sl_bluetooth.h:
-C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_bluetooth_config.h:
-C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_bluetooth_connection_config.h:
-C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_bluetooth_advertiser_config.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sl_bt_stack_config.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sl_bt_ll_config.h:
-C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\config/sl_rail_util_pa_config.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\radio\rail_lib\common\rail_types.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\radio\rail_lib\chip\efr32\efr32xg1x\rail_chip_specific.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\radio\rail_lib\common\rail_features.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\radio\rail_lib\common\rail_types.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sl_bt_api.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sl_bgapi.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sl_bt_api_compatibility.h:
-../autogen/sl_iostream_init_usart_instances.h:
-../autogen/sl_component_catalog.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\iostream\inc\sl_iostream.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\iostream\inc\sl_iostream_uart.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\service\iostream\inc\sl_iostream.h:
-c\:\users\avest\simplicitystudio\sdks\gecko_sdk\app\bluetooth\common\simple_timer\sl_simple_timer.h:

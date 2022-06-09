@@ -37,7 +37,7 @@
 
 // The advertising set handle allocated from Bluetooth stack.
 static uint8_t advertising_set_handle = 0xff;
-
+long tempValue;
 /**************************************************************************//**
  * Application Init.
  *****************************************************************************/
@@ -146,14 +146,39 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
     // Add additional event handlers here as your application requires!      //
     ///////////////////////////////////////////////////////////////////////////
     case sl_bt_evt_gatt_server_user_read_request_id:
-      app_log_info("%s: reading temp and humidty....\n", __FUNCTION__);
-      get_temp();
+      tempValue = get_temp();
+      if(evt->data.evt_gatt_server_user_read_request.characteristic == gattdb_temperature){
+          app_log_info("%s: reading temp and humidty....\n", __FUNCTION__);
+          app_log_info("%sTemperature: %d degC\n", __FUNCTION__,tempValue);
+          app_assert_status(sl_bt_gatt_server_send_user_read_response(evt->data.evt_gatt_server_user_read_request.connection,
+                                                            gattdb_temperature,
+                                                            0,
+                                                            sizeof(tempValue),
+                                                            (uint8_t*)&tempValue,
+                                                            NULL));
+      }
       break;
 
+    //obtention des évenements sur le CCCD
+    case sl_bt_evt_gatt_server_characteristic_status_id:
+      app_log_info("%s condition check!!!\n", __FUNCTION__);
+      tempValue = get_temp();
+           if(evt->data.evt_gatt_server_user_read_request.characteristic == gattdb_temperature){
+               app_log_info("%s: reading temp and humidty....\n", __FUNCTION__);
+               app_log_info("%sTemperature: %d degC\n", __FUNCTION__,tempValue);
+               app_assert_status(sl_bt_gatt_server_send_user_read_response(evt->data.evt_gatt_server_user_read_request.connection,
+                                                                 gattdb_temperature,
+                                                                 0,
+                                                                 sizeof(tempValue),
+                                                                 (uint8_t*)&tempValue,
+                                                                 NULL));
+           }
+      break;
 
     // -------------------------------
     // Default event handler.
     default:
       break;
-  }
-}
+
+  }}
+

@@ -416,6 +416,16 @@
 			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_select/sl_sensor_select.h</locationURI>
 		</link>
 		<link>
+			<name>gecko_sdk_4.0.2/app/bluetooth/common/simple_timer/sl_simple_timer.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/simple_timer/sl_simple_timer.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.0.2/app/bluetooth/common/simple_timer/sl_simple_timer.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/simple_timer/sl_simple_timer.h</locationURI>
+		</link>
+		<link>
 			<name>gecko_sdk_4.0.2/app/common/util/app_assert/app_assert.h</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/app/common/util/app_assert/app_assert.h</locationURI>

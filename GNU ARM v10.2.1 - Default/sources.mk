@@ -21,6 +21,7 @@ autogen \
 gecko_sdk_4.0.2/app/bluetooth/common/ota_dfu \
 gecko_sdk_4.0.2/app/bluetooth/common/sensor_rht \
 gecko_sdk_4.0.2/app/bluetooth/common/sensor_select \
+gecko_sdk_4.0.2/app/bluetooth/common/simple_timer \
 gecko_sdk_4.0.2/app/common/util/app_log \
 gecko_sdk_4.0.2/hardware/board/src \
 gecko_sdk_4.0.2/hardware/driver/mx25_flash_shutdown/src/sl_mx25_flash_shutdown_usart \

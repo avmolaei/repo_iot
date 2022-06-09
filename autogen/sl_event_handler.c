@@ -19,6 +19,7 @@
 #include "sl_iostream_init_usart_instances.h"
 #include "sl_mbedtls.h"
 #include "sl_mpu.h"
+#include "sl_simple_timer.h"
 #include "sl_iostream_init_instances.h"
 #include "sl_power_manager.h"
 
@@ -69,6 +70,7 @@ void sl_platform_process_action(void)
 
 void sl_service_process_action(void)
 {
+  sli_simple_timer_step();
 }
 
 void sl_stack_process_action(void)

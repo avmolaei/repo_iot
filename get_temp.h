@@ -10,6 +10,6 @@
 
 
 
-void get_temp();
+long get_temp();
 
 #endif /* GET_TEMP_H_ */
