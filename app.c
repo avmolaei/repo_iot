@@ -162,17 +162,17 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
     //obtention des évenements sur le CCCD
     case sl_bt_evt_gatt_server_characteristic_status_id:
       app_log_info("%s condition check!!!\n", __FUNCTION__);
-      tempValue = get_temp();
-           if(evt->data.evt_gatt_server_user_read_request.characteristic == gattdb_temperature){
-               app_log_info("%s: reading temp and humidty....\n", __FUNCTION__);
-               app_log_info("%sTemperature: %d degC\n", __FUNCTION__,tempValue);
-               app_assert_status(sl_bt_gatt_server_send_user_read_response(evt->data.evt_gatt_server_user_read_request.connection,
-                                                                 gattdb_temperature,
-                                                                 0,
-                                                                 sizeof(tempValue),
-                                                                 (uint8_t*)&tempValue,
-                                                                 NULL));
-           }
+      if(evt->data.evt_gatt_server_user_read_request.characteristic == gattdb_temperature){
+          app_log_info("characteristic access: temperature\n", __FUNCTION__);
+          app_log_info("status_flags: %lu", __FUNCTION__, (evt->data.evt_gatt_server_characteristic_status.status_flags));
+      //    evt->data.evt_gatt_server_characteristic_status.client_config
+          }
+
+
+
+
+      }
+
       break;
 
     // -------------------------------
