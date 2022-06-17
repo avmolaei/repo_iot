@@ -35,9 +35,19 @@
 #include "sl_sensor_rht.h"
 #include "get_temp.h"
 #include "sl_simple_led_instances.h"
+#include "sl_simple_timer.h"
 // The advertising set handle allocated from Bluetooth stack.
 static uint8_t advertising_set_handle = 0xff;
+
+static sl_simple_timer_t mon_timer;
 long tempValue;
+
+
+int n = 0;
+static void mon_callback();
+static uint8_t id_conn = 0;
+
+
 /**************************************************************************//**
  * Application Init.
  *****************************************************************************/
@@ -83,6 +93,8 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
     // Do not call any stack command before receiving this boot event!
     case sl_bt_evt_system_boot_id:
 
+      sl_simple_timer_stop(&mon_timer);
+
       // Extract unique ID from BT Address.
       sc = sl_bt_system_get_identity_address(&address, &address_type);
       app_assert_status(sc);
@@ -127,6 +139,8 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
     // This event indicates that a new connection was opened.
     case sl_bt_evt_connection_opened_id:
       sl_sensor_rht_init();
+
+      sl_simple_timer_stop(&mon_timer);
       app_log_info("%s: connexion ouverte!\n", __FUNCTION__);
 
       break;
@@ -135,6 +149,7 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
     // This event indicates that a connection was closed.
     case sl_bt_evt_connection_closed_id:
       sl_sensor_rht_deinit();
+      sl_simple_timer_stop(&mon_timer);
       app_log_info("%s: connexion fermee!\n", __FUNCTION__);
       // Restart advertising after client has disconnected.
       sc = sl_bt_advertiser_start(
@@ -148,6 +163,8 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
     // Add additional event handlers here as your application requires!      //
     ///////////////////////////////////////////////////////////////////////////
     case sl_bt_evt_gatt_server_user_read_request_id:
+
+      sl_simple_timer_stop(&mon_timer);
       if(evt->data.evt_gatt_server_user_read_request.characteristic == gattdb_temperature){
           app_log_info("%s: reading temp and humidty....\n", __FUNCTION__);
           tempValue = get_temp();
@@ -166,25 +183,32 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
     //obtention des évenements sur le CCCD
     case sl_bt_evt_gatt_server_characteristic_status_id:
 
-
-
       app_log_info("%s condition check!!!\n", __FUNCTION__);
       if(evt->data.evt_gatt_server_user_read_request.characteristic == gattdb_temperature){
           app_log_info("characteristic access: temperature\n", __FUNCTION__);
           app_log_info("status_flags: %lu", __FUNCTION__, (evt->data.evt_gatt_server_characteristic_status.status_flags));
 
-
               if (evt->data.evt_gatt_server_characteristic_status.client_config_flags == gatt_notification) {
                   app_log_info("\n------MODE NOTIF-------\n", __FUNCTION__);
+
                   tempValue = get_temp();
-                  app_log_info("%sTemperature: %d degC\n", __FUNCTION__,tempValue);
+                  sc = sl_simple_timer_start(&mon_timer,
+                                             1000,
+                                             mon_callback,
+                                             NULL,
+                                             true);
+                  app_assert_status(sc);
                   app_assert_status(sl_bt_gatt_server_send_notification(evt->data.evt_gatt_server_user_read_request.connection,
                                                                              gattdb_temperature,
                                                                              sizeof(tempValue),
                                                                              (uint8_t*)&tempValue
                                                                              ));
 
-          }
+
+
+
+
+}
 
 
 
@@ -192,12 +216,16 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
       }
 
 
+      sl_simple_timer_stop(&mon_timer);
       break;
 
 
 
 
     case sl_bt_evt_gatt_server_user_write_request_id:
+
+
+      sl_simple_timer_stop(&mon_timer);
           app_log_info("%s condition check!!!\n", __FUNCTION__);
           if (evt->data.evt_gatt_server_user_write_request.characteristic == gattdb_digital) {
               app_log_info("characteristic access: digital\n", __FUNCTION__);
@@ -210,16 +238,18 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
                   app_log_info("sl_led0: OFF \n");
                   sl_led_turn_off(*sl_simple_led_array);
               }
-
+             id_conn = evt->data.evt_gatt_server_user_write_request.connection;
              sc =  sl_bt_gatt_server_send_user_write_response(evt->data.evt_gatt_server_user_write_request.connection,
                                                               gattdb_digital,
                                                               SL_STATUS_OK);
 
               app_log_info("code: %d\n", __FUNCTION__, evt->data.evt_gatt_server_characteristic_status.status_flags);
-
-
-
               app_assert_status(sc);
+
+
+
+
+
           }
           break;
 
@@ -231,6 +261,18 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
       break;
 
   }
+
+}
+
+
+
+static void mon_callback()
+{
+  long tempValue;
+  tempValue = get_temp();
+  app_log_info("\n---------------\nn=%d, temp = %d", n, tempValue);
+
+  n++;
 
 }
 
