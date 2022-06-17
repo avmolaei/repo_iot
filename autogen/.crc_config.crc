@@ -22,4 +22,5 @@ sl_mx25_flash_shutdown_usart_config.h=2028437356
 sl_power_manager_config.h=-1475773310
 sl_rail_util_pa_config.h=-1084882279
 sl_rail_util_pti_config.h=1862664786
+sl_simple_led_led0_config.h=-1495083020
 sl_sleeptimer_config.h=-1879962229

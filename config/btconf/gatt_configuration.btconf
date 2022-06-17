@@ -59,7 +59,24 @@
       <value length="0" type="user" variable_length="false"/>
       <properties>
         <read authenticated="false" bonded="false" encrypted="false"/>
+        <indicate authenticated="false" bonded="false" encrypted="false"/>
         <notify authenticated="false" bonded="false" encrypted="false"/>
+      </properties>
+    </characteristic>
+  </service>
+  
+  <!--Automation IO-->
+  <service advertise="true" id="automation_io" name="Automation IO" requirement="mandatory" sourceId="" type="primary" uuid="1815">
+    <informativeText/>
+    
+    <!--Digital-->
+    <characteristic const="false" id="digital" name="Digital" sourceId="" uuid="ecfab5f8-580d-4215-b0c4-bf883bf5084a">
+      <description>digital io access</description>
+      <informativeText/>
+      <value length="0" type="user" variable_length="false"/>
+      <properties>
+        <write authenticated="false" bonded="false" encrypted="false"/>
+        <write_no_response authenticated="false" bonded="false" encrypted="false"/>
       </properties>
     </characteristic>
   </service>

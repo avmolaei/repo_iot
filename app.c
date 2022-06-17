@@ -34,7 +34,7 @@
 #include "app.h"
 #include "sl_sensor_rht.h"
 #include "get_temp.h"
-
+#include "sl_simple_led_instances.h"
 // The advertising set handle allocated from Bluetooth stack.
 static uint8_t advertising_set_handle = 0xff;
 long tempValue;
@@ -46,6 +46,8 @@ SL_WEAK void app_init(void)
   /////////////////////////////////////////////////////////////////////////////
   // Put your additional application init code here!                         //
   app_log_info("%s\n", __FUNCTION__);
+  //sl_led_init(&sl_led_led0);
+  sl_simple_led_init_instances();
   // This is called once during start-up.                                    //
   /////////////////////////////////////////////////////////////////////////////
 }
@@ -146,9 +148,9 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
     // Add additional event handlers here as your application requires!      //
     ///////////////////////////////////////////////////////////////////////////
     case sl_bt_evt_gatt_server_user_read_request_id:
-      tempValue = get_temp();
       if(evt->data.evt_gatt_server_user_read_request.characteristic == gattdb_temperature){
           app_log_info("%s: reading temp and humidty....\n", __FUNCTION__);
+          tempValue = get_temp();
           app_log_info("%sTemperature: %d degC\n", __FUNCTION__,tempValue);
           app_assert_status(sl_bt_gatt_server_send_user_read_response(evt->data.evt_gatt_server_user_read_request.connection,
                                                             gattdb_temperature,
@@ -159,13 +161,29 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
       }
       break;
 
+
+
     //obtention des évenements sur le CCCD
     case sl_bt_evt_gatt_server_characteristic_status_id:
+
+
+
       app_log_info("%s condition check!!!\n", __FUNCTION__);
       if(evt->data.evt_gatt_server_user_read_request.characteristic == gattdb_temperature){
           app_log_info("characteristic access: temperature\n", __FUNCTION__);
           app_log_info("status_flags: %lu", __FUNCTION__, (evt->data.evt_gatt_server_characteristic_status.status_flags));
-      //    evt->data.evt_gatt_server_characteristic_status.client_config
+
+
+              if (evt->data.evt_gatt_server_characteristic_status.client_config_flags == gatt_notification) {
+                  app_log_info("\n------MODE NOTIF-------\n", __FUNCTION__);
+                  tempValue = get_temp();
+                  app_log_info("%sTemperature: %d degC\n", __FUNCTION__,tempValue);
+                  app_assert_status(sl_bt_gatt_server_send_notification(evt->data.evt_gatt_server_user_read_request.connection,
+                                                                             gattdb_temperature,
+                                                                             sizeof(tempValue),
+                                                                             (uint8_t*)&tempValue
+                                                                             ));
+
           }
 
 
@@ -173,12 +191,46 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
 
       }
 
+
       break;
+
+
+
+
+    case sl_bt_evt_gatt_server_user_write_request_id:
+          app_log_info("%s condition check!!!\n", __FUNCTION__);
+          if (evt->data.evt_gatt_server_user_write_request.characteristic == gattdb_digital) {
+              app_log_info("characteristic access: digital\n", __FUNCTION__);
+
+              if(evt->data.evt_gatt_server_attribute_value.value.data[0] != 0){
+                  app_log_info("sl_led0: ON\n");
+                  sl_led_turn_on(*sl_simple_led_array);
+              }
+              else{
+                  app_log_info("sl_led0: OFF \n");
+                  sl_led_turn_off(*sl_simple_led_array);
+              }
+
+             sc =  sl_bt_gatt_server_send_user_write_response(evt->data.evt_gatt_server_user_write_request.connection,
+                                                              gattdb_digital,
+                                                              SL_STATUS_OK);
+
+              app_log_info("code: %d\n", __FUNCTION__, evt->data.evt_gatt_server_characteristic_status.status_flags);
+
+
+
+              app_assert_status(sc);
+          }
+          break;
+
+
 
     // -------------------------------
     // Default event handler.
     default:
       break;
 
-  }}
+  }
+
+}
 

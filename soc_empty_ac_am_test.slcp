@@ -19,27 +19,29 @@ include:
 sdk: {id: gecko_sdk, version: 4.0.2}
 toolchain_settings: []
 component:
-- {id: app_log}
-- {id: bluetooth_feature_connection}
 - {id: bluetooth_feature_gatt_server}
 - {id: brd4166a}
-- {id: bluetooth_feature_advertiser}
-- instance: [vcom]
-  id: iostream_usart
 - {id: bluetooth_feature_sm}
 - {id: simple_timer}
 - {id: mpu}
-- {id: bluetooth_feature_system}
 - {id: EFR32MG12P332F1024GL125}
 - {id: gatt_configuration}
-- {id: bluetooth_feature_scanner}
+- instance: [led0]
+  id: simple_led
 - {id: bluetooth_stack}
+- {id: rail_util_pti}
+- {id: bluetooth_feature_gatt}
+- {id: app_log}
+- {id: bluetooth_feature_connection}
+- {id: bluetooth_feature_advertiser}
+- instance: [vcom]
+  id: iostream_usart
+- {id: bluetooth_feature_system}
+- {id: bluetooth_feature_scanner}
 - {id: component_catalog}
 - {id: ota_dfu}
 - {id: bootloader_interface}
-- {id: rail_util_pti}
 - {id: app_assert}
-- {id: bluetooth_feature_gatt}
 - {id: sensor_rht}
 other_file:
 - {path: create_bl_files.bat}

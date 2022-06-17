@@ -491,6 +491,26 @@
 			<locationURI>STUDIO_SDK_LOC/platform/driver/i2cspm/src/sl_i2cspm.c</locationURI>
 		</link>
 		<link>
+			<name>gecko_sdk_4.0.2/platform/driver/leddrv/inc/sl_led.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/platform/driver/leddrv/inc/sl_led.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.0.2/platform/driver/leddrv/inc/sl_simple_led.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/platform/driver/leddrv/inc/sl_simple_led.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.0.2/platform/driver/leddrv/src/sl_led.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/platform/driver/leddrv/src/sl_led.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.0.2/platform/driver/leddrv/src/sl_simple_led.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/platform/driver/leddrv/src/sl_simple_led.c</locationURI>
+		</link>
+		<link>
 			<name>gecko_sdk_4.0.2/platform/radio/rail_lib/common/rail.h</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/platform/radio/rail_lib/common/rail.h</locationURI>

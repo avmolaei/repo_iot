@@ -98,7 +98,11 @@ app.o: ../app.c \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sli_bt_gattdb_def.h \
  ../app.h \
  c\:\users\avest\simplicitystudio\sdks\gecko_sdk\app\bluetooth\common\sensor_rht\sl_sensor_rht.h \
- ../get_temp.h
+ ../get_temp.h \
+ C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\autogen/sl_simple_led_instances.h \
+ c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\driver\leddrv\inc\sl_simple_led.h \
+ c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\driver\leddrv\inc\sl_led.h \
+ c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_gpio.h
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\common\toolchain\inc\sl_gcc_preinclude.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_common.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\device\siliconlabs\efr32mg12p\include\em_device.h:
@@ -199,3 +203,7 @@ c\:\users\avest\simplicitystudio\sdks\gecko_sdk\protocol\bluetooth\inc\sli_bt_ga
 ../app.h:
 c\:\users\avest\simplicitystudio\sdks\gecko_sdk\app\bluetooth\common\sensor_rht\sl_sensor_rht.h:
 ../get_temp.h:
+C\:\Users\avest\SimplicityStudio\v5_workspace\soc_empty_ac_am_test\autogen/sl_simple_led_instances.h:
+c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\driver\leddrv\inc\sl_simple_led.h:
+c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\driver\leddrv\inc\sl_led.h:
+c\:\users\avest\simplicitystudio\sdks\gecko_sdk\platform\emlib\inc\em_gpio.h:
